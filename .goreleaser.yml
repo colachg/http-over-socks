@@ -42,8 +42,8 @@ checksum:
   algorithm: sha512
 release:
   github:
-    owner: nobody
-    name: nobody
+    owner: colachg
+    name: http-over-socks
   draft: true
   prerelease: auto
 changelog:
