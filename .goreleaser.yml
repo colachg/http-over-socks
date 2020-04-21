@@ -1,8 +1,8 @@
 before:
   hooks:
-    - mkdir -p build
-    - cp main.go build/main.go
-    - cp ./go.mod build/go.mod
+#    - mkdir -p build
+#    - cp main.go build/main.go
+#    - cp ./go.mod build/go.mod
     # GoReleaser doesn't seem to offer {{.Tag}} at this stage, so we have to embed it into the env
     # so we run: TAG=$(git describe --abbrev=0) goreleaser release --rm-dist --skip-publish --skip-validate
     - go mod download
