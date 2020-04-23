@@ -86,7 +86,6 @@ func main() {
 	flag.IntVar(&config.nreq, "nr", 1, "number of request for each connection")
 	// flag.IntVar(&config.nsec, "ns", 0, "run how many seconds for each connection")
 	flag.BoolVar((*bool)(&debug), "d", false, "print http response body for debugging")
-
 	flag.Parse()
 
 	if config.server == "" || config.port == 0 || config.passwd == "" || len(flag.Args()) != 1 {
@@ -140,8 +139,10 @@ func main() {
 
 	fmt.Println("number of total requests:", config.nconn*config.nreq)
 	fmt.Println("number of finished requests:", reqDone)
+	fmt.Println()
 	if reqDone == 0 {
-		return
+		//return
+		os.Exit(1)
 	}
 
 	// calculate average an standard deviation
@@ -161,4 +162,5 @@ func main() {
 	stddev := math.Sqrt(varSum / float64(reqDone))
 	fmt.Println("\naverage time per request:", time.Duration(avg))
 	fmt.Println("standard deviation:", time.Duration(stddev))
+	fmt.Println()
 }
